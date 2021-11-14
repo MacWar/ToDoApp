@@ -1,4 +1,4 @@
-import TaskSettings from "./TaskSettings";
+import AddTask from "./AddTask";
 import TaskContainer from "./TaskContainer";
 import React, { Component } from 'react'
 import "./App.css"
@@ -57,7 +57,7 @@ export default class App extends Component {
   render() {
     return (
         <div className="App">
-          <TaskSettings/>
+          <AddTask/>
           <TaskContainer taskList={this.state.taskList} deleteTask={this.handleDeleteTask} completeTask={this.handleCompleteTask}/>
         </div>
     )
