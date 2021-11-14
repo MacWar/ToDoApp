@@ -5,32 +5,7 @@ import "./App.css"
 
 export default class App extends Component {
   state ={
-    taskList:[
-      {
-        id:1,
-        description:"play game",
-        dateDeadline: '2018-02-15',
-        priority: false,
-        isActive: true,
-        dateCompleted:null,
-      },
-      {
-        id:2,
-        description:"find job",
-        dateDeadline: '2018-02-15',
-        priority: true,
-        isActive: true,
-        dateCompleted:null,
-      },
-      {
-        id:3,
-        description:"buy course",
-        dateDeadline: '2018-01-25',
-        priority: false,
-        isActive: true,
-        dateCompleted:null,
-      },
-    ]
+    taskList:[]
   }
   
   handleDeleteTask=(id)=>{
@@ -41,6 +16,7 @@ export default class App extends Component {
       taskList:taskList,
     })
   }
+
   handleCompleteTask=(id)=>{
     const taskList=[...this.state.taskList]
    
@@ -54,10 +30,27 @@ export default class App extends Component {
       taskList : taskList,
     })
   }
+
+  counter = 1;
+
+  addTask = (description, priority, date) => {
+    const task = {
+      id: this.counter,
+      description: description,
+      dateDeadline: date,
+      priority: priority,
+      isActive: true,
+      dateCompleted: null,
+    }
+    this.counter++;
+    this.setState(prevState => ({
+      taskList: [...prevState.taskList, task] 
+    }))
+  }
   render() {
     return (
         <div className="App">
-          <AddTask/>
+          <AddTask addTaks={this.addTask}/>
           <TaskContainer taskList={this.state.taskList} deleteTask={this.handleDeleteTask} completeTask={this.handleCompleteTask}/>
         </div>
     )
