@@ -8,7 +8,7 @@ export default class App extends Component {
     taskList:[
       {
         id:1,
-        description:"grać w grę",
+        description:"play game",
         dateDeadline: '2018-02-15',
         priority: false,
         isActive: true,
@@ -16,12 +16,20 @@ export default class App extends Component {
       },
       {
         id:2,
-        description:"grać w plansza",
+        description:"find job",
         dateDeadline: '2018-02-15',
         priority: false,
         isActive: true,
         dateCompleted:null,
-      }
+      },
+      {
+        id:3,
+        description:"buy course",
+        dateDeadline: '2018-01-25',
+        priority: false,
+        isActive: false,
+        dateCompleted:null,
+      },
     ]
   }
   handleDeleteTask=(id)=>{
@@ -41,7 +49,7 @@ export default class App extends Component {
       }
     })
     this.setState({
-      taskList:taskList,
+      taskList : taskList,
     })
   }
   render() {
