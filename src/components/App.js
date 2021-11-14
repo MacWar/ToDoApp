@@ -18,7 +18,7 @@ export default class App extends Component {
         id:2,
         description:"find job",
         dateDeadline: '2018-02-15',
-        priority: false,
+        priority: true,
         isActive: true,
         dateCompleted:null,
       },
@@ -27,11 +27,12 @@ export default class App extends Component {
         description:"buy course",
         dateDeadline: '2018-01-25',
         priority: false,
-        isActive: false,
+        isActive: true,
         dateCompleted:null,
       },
     ]
   }
+  
   handleDeleteTask=(id)=>{
     const taskList=[...this.state.taskList]
     const index=taskList.findIndex(item=>taskList.id===id)
@@ -42,6 +43,7 @@ export default class App extends Component {
   }
   handleCompleteTask=(id)=>{
     const taskList=[...this.state.taskList]
+   
     taskList.forEach(item=>{
       if(item.id===id){
         item.isActive=false

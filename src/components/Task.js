@@ -3,14 +3,13 @@ import './Task.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Task(props) {
-    const {description, dateDeadline, id} = props.task;
+    const {description, dateDeadline, id, priority} = props.task;
     
-    const important = {color : 'red'}
-    
+    const completeDate = new Date().toLocaleString();
     if(props.active)
         return (
             <tr className="task">
-                <td>{description}</td>
+                <td className= {priority===true ? "importantDecription" : "normalDescripton"} >{description}</td>
                 <td>{dateDeadline}</td>
                 <td>
                     <button onClick={()=>props.completeTask(id)} className="btn btn-success">&#10003;</button> 
@@ -21,8 +20,9 @@ export default function Task(props) {
     else
     return (
             <tr className="task">
-                <td>{description}</td>
+                <td className={priority ? "importantDecription" : ""}>{description}</td>
                 <td>{dateDeadline}</td>
+                <td>{completeDate}</td>
                 <td>
                     <button onClick={()=>props.deleteTask(id)} className="btn btn-danger">X</button>
                 </td>

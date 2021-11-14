@@ -8,11 +8,13 @@ export default function TaskContainer(props) {
     const finsishedTasks = props.taskList.filter(task => !task.isActive); 
    
     const activeTaskList = activeTasks.map((task) => {
-        return(<Task key={task.id} task={task} deleteTask={props.deleteTask} completeTask={props.completeTask} active={task.isActive}/>)
+        return(<Task key={task.id} task={task} deleteTask={props.deleteTask} completeTask={props.completeTask} active={task.isActive} priority={task.priority}/>)
     })
     const finsishedTasksList = finsishedTasks.map((task) => {
-        return(<Task key={task.id} task={task} deleteTask={props.deleteTask} completeTask={props.completeTask} active={task.isActive}/>)
+        return(<Task key={task.id} task={task} deleteTask={props.deleteTask} completeTask={props.completeTask} active={task.isActive} important={task.priority} />)
     })
+
+    
     return (
         <>
             <div className="container">
@@ -43,6 +45,7 @@ export default function TaskContainer(props) {
                             <tr>
                                 <th>Task</th>
                                 <th>Deadline</th>
+                                <th>Finish date</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
