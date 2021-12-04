@@ -1,3 +1,10 @@
-input {
+.add-task-deadline-label {
+    display: inline;
+}
+.add-task-deadline-button {
+    display: inherit !important;
     
+}
+.add-task-deadline-title {
+    text-align: center;
 }

@@ -44,16 +44,16 @@ export default class AddTask extends Component {
         const minimalDate = new Date().toISOString().slice(0,10); 
         return (
             <div className="container">
-                <h2>Add Task</h2>
+                <h2 className="add-task-deadline-title">Add Task</h2>
                 <div className="addTaskForm">
                     <input type="text" className="form-control" placeholder="Task decription" value={this.state.description} onChange={this.handleDescription}/>
                     <div className="form-group">
                         <input type="checkbox" className="form-check-label" id="priority" checked={this.state.priorityCheckboxValue} onChange={this.handleCheckPrioroty}/>
                         <label className="form-check-label" htmlFor="priority">Important</label>
                     </div>
-                    <label htmlFor="deadline">Deadline: </label>
+                    <label className="add-task-deadline-label" htmlFor="deadline">Deadline: </label>
                     <input type="date" id="deadline" value={this.state.date} min={minimalDate} onChange={this.handleDate} />
-                    <button onClick={this.handleButtonAddTask}>Dodaj</button>
+                    <button className=" btn btn-dark add-task-deadline-button " onClick={this.handleButtonAddTask}>Add</button>
                 </div>
             </div>
         )
